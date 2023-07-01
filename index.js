@@ -1,21 +1,32 @@
-// ---------------------- ------------- Tutorial: 1 --------------------------------------------------------
-
- import React from 'react'
-//var React = require('react');
+ 
+import React from 'react'
 import ReactDOM from 'react-dom';
-//var ReactDOM = require('react-dom');
+ 
+ // ---------------------- ------------- Tutorial: 2 --------------------------------------------------------
 
+//Q. How to add jsx Multiple Elements inside ReactDOM.render() in ReactJS
 
-// ReactDOM.render("Kya dikhana hai (What to show)", "Kha dikhana hai (Where to show)" ,'Callback function');
-ReactDOM.render(<h1>Hello World!</h1>, document.getElementById('root'));
+//-------------First method (Using <div> tag)----------
+ReactDOM.render(
+    <div>                        
+        <h1>Div First Element</h1>        
+        <p>Div Second Element</p>
+    </div>,
+    document.getElementById('root')
+);
 
+// Note**: Here <div> method create a new div inside the 'root' div
 
-//React is a JavaScript library for building user interfaces, 
-// and Babel helps developers write React code using modern JavaScript features that may not be supported by all browsers
-// So Babel convert this modern javascript code into that format that understand by browser.
-
-// Note** : JSX is a syntactic extension of JavaScript that allows you to write HTML-like code within your JavaScript code. When you use JSX in your React components, it gets transformed into regular JavaScript code before being executed.
-
+// ---------second Method (Using array)-----------
+ReactDOM.render(
+    [
+        <h1> Array First Element</h1>,
+        <p>Array Second Element</p>,
+        <p>Array Third Element</p>
+        
+    ],
+    document.getElementById('root')
+);
 
 
 
