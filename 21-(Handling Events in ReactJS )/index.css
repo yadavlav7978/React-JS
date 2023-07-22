@@ -1,0 +1,29 @@
+
+body{
+  background-color: rgb(171, 226, 208);
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  color: brown;
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+}
+
+.btn{
+  width: 130px;
+  height: 130px;
+  background-color: brown;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
