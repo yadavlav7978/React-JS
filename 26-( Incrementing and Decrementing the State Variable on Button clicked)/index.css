@@ -1,0 +1,32 @@
+body {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  background-color: antiquewhite;
+  border: 2px solid salmon;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  width: 150px;
+  height: 50px;
+  margin-left: 20px;
+  cursor: pointer;
+  background-color: rgb(235, 110, 110);
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+button:hover {
+  transition: all 0.2s ease-out;
+  transform: scale(1.03);
+  background-color: rgb(129, 214, 129);
+}
