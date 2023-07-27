@@ -6,6 +6,7 @@ const name="Lav Yadav";
 const date=new Date().toLocaleDateString();
 const time=new Date().toLocaleTimeString();
 
+
 ReactDOM.render(
     <>
     <h2>Hello, My Name is {name}</h2>
