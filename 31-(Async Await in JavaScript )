@@ -1,0 +1,43 @@
+1. Async/await is a modern feature in JavaScript that provides a more concise and efficient way to work with asynchronous code. 
+   It allows us to write asynchronous code in a more efficient manner, making it easier to read.
+
+2. Async/await is especially useful when we have multiple asynchronous operations that depend on each other or need to be executed 
+   in a particular order. Instead of chaining promises , we can use the async keyword to declare an asynchronous function
+   and the await keyword to pause the execution of the function until a promise is resolved. 
+   In This way, we can write asynchronous code that looks more like synchronous code.
+
+3. "async and await make promises easier to write"
+    "async" makes a function return a Promise
+    "await" makes a function wait for a Promise
+
+Example 1 : 
+
+// Creting asynchronous functions that return promises
+   
+function delayMessage(message, delay) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, delay);
+  });
+}
+
+// Using async/await to perform sequential asynchronous operations
+
+async function asyncOperation() {
+  try {
+    const result1 = await delayMessage("First message", 1000);
+    console.log(result1);                                                  // Output after 1 second: "First message"
+
+    const result2 = await delayMessage("Second message", 1500);
+    console.log(result2);                                                  // Output after another 1.5 seconds: "Second message"
+
+    const result3 = await delayMessage("Third message", 500);
+    console.log(result3);                                                   // Output after another 0.5 seconds: "Third message"
+    
+  } catch (error) {
+    console.error(error.message);                                           // Output if any promise is rejected
+  }
+}
+
+asyncOperation();
