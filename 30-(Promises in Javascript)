@@ -1,0 +1,89 @@
+
+1. JavaScript promises are a way to handle asynchronous operations. They provide a mechanism for working with asynchronous tasks that may
+   take some time to complete, such as fetching data from a server, reading a file, or making an API call.
+   
+2.Note**:  An asynchronous operation, refers to a task or process that does not happen immediately and may take some time to complete. 
+           During the execution of an asynchronous operation, the program does not block, allowing other tasks or processes to continue
+           running concurrently.
+           In contrast, synchronous operations block the program's execution until the operation is complete.
+           This means that the program has to wait for a synchronous operation to finish before moving on to the next line of code.
+
+3. Promises has three state : 
+  i)   Pending: The initial state of a promise, while the asynchronous operation is in progress.
+  ii)  Fulfilled/Resolved: In this state asynchronous operation is completed successfully, and the result is available.
+  iii) Rejected: In this state asynchronous operation encounters an error or is unsuccessful.
+
+5. Promises syntax : 
+   const myPromise = new Promise((resolve, reject) => {
+   // Executer function 
+   });
+  
+4. Promises are created using the 'Promise' constructor, which takes a function as a parameter with two arguments: 'resolve' and 'reject'.
+   Inside this function, we perform the asynchronous operation.After that we call either 'resolve' or 'reject' method.
+   
+5. The resolve() and reject() methods in promises are used to tells the status and outcome of an asynchronous task performed inside the promise.
+
+i) resolve(value): This method is called when the asynchronous task inside the promise is successfully completed. 
+   It signifies that the promise is fulfilled, and any callbacks attached using .then() will be executed.
+   
+ii) reject(error): This method is called when the asynchronous task encounters an error or fails. 
+    It signifies that the promise is rejected, and any callbacks attached using .catch() will be executed. 
+ 
+6. The .then() method is used to handle the resolved value of the promise, 
+   and the .catch() method is used to handle any errors that may occur during the promise's execution.
+
+Note**: callback refers to a function that is passed as an argument to methods like .then(), .catch(), or .finally().
+       Callbacks in promises allow you to define what should happen after an asynchronous operation is completed (whether it succeeds or fails).
+
+Example 1: Without chaining 
+
+const myPromise = new Promise((resolve, reject) => {
+  
+  setTimeout(() => {
+    const Mydata = { message: "Promise resolved successfully!" };
+
+    resolve(Mydata);
+  
+    // reject(new Error("Something went wrong!"));
+  }, 2000); 
+});
+
+myPromise
+  .then((data) => {
+    console.log(data.message); // Output: "Promise resolved successfully!"
+  })
+  .catch((error) => {
+    console.error(error.message); // Output if rejected: "Something went wrong!"
+  });
+
+Example 2: chaining promises
+
+function delayMessage(message, delay) {
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(message);
+    }, delay);
+  });
+}
+
+delayMessage("First message", 1000)
+  .then((result) => {
+    console.log(result);                              // Output: "First message"
+    return delayMessage("Second message", 1500);
+  })
+  .then((result) => {
+    console.log(result);                             // Output: "Second message"
+    return delayMessage("Third message", 500);
+  })
+  .then((result) => {
+    console.log(result);                              // Output: "Third message"
+  })
+  .catch((error) => {
+    console.error(error.message);                     // Output if an error occurs in any of the promises
+  });
+
+
+
+
+
