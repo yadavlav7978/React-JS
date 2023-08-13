@@ -1,0 +1,25 @@
+import React from "react";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import NotFound from "./NotFound";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Manu from "./Manu";
+
+const App = () => {
+  return (
+    <>
+      <BrowserRouter>
+        <Manu />
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/contact" element={<Contact />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+};
+
+export default App;
