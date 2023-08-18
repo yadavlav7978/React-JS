@@ -23,3 +23,15 @@ const App = () => {
 };
 
 export default App;
+
+{/*
+
+By default, React Router is not case-sensitive. This means that the routes /About and /aBouT will be considered the same. 
+To make React Router case-sensitive, you can use the caseSensitive prop on the Route component. 
+
+For example:  <Route exact path="/AbOuT" caseSensitive={true} element={<About />}></Route> 
+
+In above exmple 'AbOuT' and 'About' both will treat as different so it will return page not found.
+But By default caseSensitive is false so it will treat both 'AbOuT' and 'About' as same and display the about component.
+
+*/}
